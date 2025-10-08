@@ -144,7 +144,8 @@ export default function OrderForm() {
                     <SelectContent>
                       {productos.map((producto) => (
                         <SelectItem key={producto.id} value={producto.id.toString()}>
-                          {producto.nombre} - ${producto.precio.toFixed(2)}
+                        // CORRECCIÓN 1: Precio individual
+{producto.nombre} - ${Number(producto.precio).toFixed(2)} // ✅ El Number() lo convierte de string a float
                         </SelectItem>
                       ))}
                     </SelectContent>
