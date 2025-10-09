@@ -1,7 +1,13 @@
-// API para registro de usuarios
+// app/api/auth/register/route.ts
+
+// ... (otros imports)
 import { type NextRequest, NextResponse } from "next/server"
-import pool from "@/lib/db"
-import { hashPassword } from "@/lib/auth"
+import pool from "@/lib/db" // Mantén esta importación si funciona
+import { hashPassword } from "@/lib/auth" // Mantén esta importación si funciona
+import { sendEmail } from "lib/email";
+
+
+
 
 export async function POST(request: NextRequest) {
   try {
