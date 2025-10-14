@@ -447,7 +447,7 @@ export default function ProfilePage() {
                               </div>
                             </div>
                             <div className="text-right">
-                              <div className="font-bold">${pedido.total.toFixed(2)}</div>
+                              <div className="font-bold">${parseFloat(pedido.total as any || 0).toFixed(2)}</div>
                               <Badge variant="outline" className="text-xs">
                                 {pedido.estado}
                               </Badge>

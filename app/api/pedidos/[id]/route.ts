@@ -87,7 +87,7 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
       return NextResponse.json({ error: "Pedido no encontrado" }, { status: 404 })
     }
 
-    const pedido = pedidoArray[0]
+    const pedido = pedidoArray[0]a
 
     // Solo el admin o el dueño del pedido pueden ver los detalles
     if (decoded.rol !== "admin" && decoded.userId !== pedido.id_usuario) {
