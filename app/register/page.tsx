@@ -94,7 +94,7 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-4">
           <Link
             href="/"
             className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors"
@@ -104,111 +104,119 @@ export default function RegisterPage() {
           </Link>
         </div>
 
-        <Card>
-          <CardHeader className="text-center">
-            <CardTitle className="text-2xl">Crear Cuenta</CardTitle>
-            <CardDescription>Únete a la comunidad UCP para realizar pedidos</CardDescription>
-          </CardHeader>
+        <Card className="shadow-lg border-2 border-primary/20 bg-card rounded-xl">
+          <CardHeader className="text-center space-y-1">
+  <CardTitle className="text-2xl mb-0">Crear Cuenta</CardTitle>
+  <CardDescription className="text-sm text-muted-foreground mt-0">
+    Únete a la comunidad UCP para realizar pedidos
+  </CardDescription>
+</CardHeader>
+
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {error && (
-                <Alert variant="destructive">
-                  <AlertDescription>{error}</AlertDescription>
-                </Alert>
-              )}
+          <form onSubmit={handleSubmit} className="space-y-4">
+  {error && (
+    <Alert variant="destructive">
+      <AlertDescription>{error}</AlertDescription>
+    </Alert>
+  )}
 
-              <div className="space-y-2">
-                <Label htmlFor="nombre">Nombre Completo</Label>
-                <Input
-                  id="nombre"
-                  name="nombre"
-                  type="text"
-                  placeholder="Tu nombre completo"
-                  value={formData.nombre}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+  {/* Grupo del Nombre */}
+  <div className="space-y-2">
+    <Label htmlFor="nombre">Nombre Completo</Label>
+    <Input
+      id="nombre"
+      name="nombre"
+      type="text"
+      placeholder="Tu nombre completo"
+      value={formData.nombre}
+      onChange={handleChange}
+      required
+    />
+  </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="correo">Correo Electrónico</Label>
-                <Input
-                  id="correo"
-                  name="correo"
-                  type="email"
-                  placeholder="tu@ucp.edu.co"
-                  value={formData.correo}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+  {/* Grupo del Correo */}
+  <div className="space-y-2">
+    <Label htmlFor="correo">Correo Electrónico</Label>
+    <Input
+      id="correo"
+      name="correo"
+      type="email"
+      placeholder="tu@ucp.edu.co"
+      value={formData.correo}
+      onChange={handleChange}
+      required
+    />
+  </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="rol">Tipo de Usuario</Label>
-                <Select value={formData.rol} onValueChange={handleRolChange}>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Selecciona tu rol" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="estudiante">Estudiante</SelectItem>
-                    <SelectItem value="profesor">Profesor</SelectItem>
-                    <SelectItem value="admin">Administrador</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+  {/* Grupo del Tipo de Usuario */}
+  <div className="space-y-2">
+    <Label htmlFor="rol">Tipo de Usuario</Label>
+    <Select value={formData.rol} onValueChange={handleRolChange}>
+      <SelectTrigger>
+        <SelectValue placeholder="Selecciona tu rol" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem value="estudiante">Estudiante</SelectItem>
+        <SelectItem value="profesor">Profesor</SelectItem>
+        <SelectItem value="admin">Administrador</SelectItem>
+      </SelectContent>
+    </Select>
+  </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="contraseña">Contraseña</Label>
-                <div className="relative">
-                  <Input
-                    id="contraseña"
-                    name="contraseña"
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Mínimo 6 caracteres"
-                    value={formData.contraseña}
-                    onChange={handleChange}
-                    required
-                  />
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    size="sm"
-                    className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                  </Button>
-                </div>
-              </div>
+  {/* Grupo de la Contraseña */}
+  <div className="space-y-2">
+    <Label htmlFor="contraseña">Contraseña</Label>
+    <div className="relative">
+      <Input
+        id="contraseña"
+        name="contraseña"
+        type={showPassword ? "text" : "password"}
+        placeholder="Mínimo 6 caracteres"
+        value={formData.contraseña}
+        onChange={handleChange}
+        required
+      />
+      <Button
+        type="button"
+        variant="ghost"
+        size="sm"
+        className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+        onClick={() => setShowPassword(!showPassword)}
+      >
+        {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+      </Button>
+    </div>
+  </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="confirmarContraseña">Confirmar Contraseña</Label>
-                <div className="relative">
-                  <Input
-                    id="confirmarContraseña"
-                    name="confirmarContraseña"
-                    type={showConfirmPassword ? "text" : "password"}
-                    placeholder="Repite tu contraseña"
-                    value={formData.confirmarContraseña}
-                    onChange={handleChange}
-                    required
-                  />
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    size="sm"
-                    className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  >
-                    {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                  </Button>
-                </div>
-              </div>
+  {/* Grupo de Confirmar Contraseña */}
+  <div className="space-y-2">
+    <Label htmlFor="confirmarContraseña">Confirmar Contraseña</Label>
+    <div className="relative">
+      <Input
+        id="confirmarContraseña"
+        name="confirmarContraseña"
+        type={showConfirmPassword ? "text" : "password"}
+        placeholder="Repite tu contraseña"
+        value={formData.confirmarContraseña}
+        onChange={handleChange}
+        required
+      />
+      <Button
+        type="button"
+        variant="ghost"
+        size="sm"
+        className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+        onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+      >
+        {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+      </Button>
+    </div>
+  </div>
 
-              <Button type="submit" className="w-full" disabled={loading}>
-                {loading ? "Creando cuenta..." : "Crear Cuenta"}
-              </Button>
-            </form>
+  <Button type="submit" className="w-full" disabled={loading}>
+    {loading ? "Creando cuenta..." : "Crear Cuenta"}
+  </Button>
+</form>
 
             <div className="mt-6 text-center text-sm">
               <span className="text-muted-foreground">¿Ya tienes cuenta? </span>

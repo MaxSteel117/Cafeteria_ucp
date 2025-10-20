@@ -87,22 +87,37 @@ export default function CafeteriaUCP() {
               <div className="mt-8">
                 <h4 className="text-lg font-semibold mb-4 text-primary">Síguenos en Redes Sociales</h4>
                 <div className="flex space-x-4">
-                  <Button variant="outline" size="icon">
-                    <Instagram className="h-4 w-4" />
-                  </Button>
-                  <Button variant="outline" size="icon">
-                    <Facebook className="h-4 w-4" />
-                  </Button>
-                  <Button variant="outline" size="icon">
-                    <Twitter className="h-4 w-4" />
-                  </Button>
+                    <a href="https://www.instagram.com/tds.pozole" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <Button variant="outline" size="icon">
+        <Instagram className="h-4 w-4" />
+      </Button>
+    </a>
+                   <a href="https://www.facebook.com/share/1BWLpYPrhe/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <Button variant="outline" size="icon">
+        <Facebook className="h-4 w-4" />
+      </Button>
+    </a>
+                  <a href="https://x.com/Fernanfloo" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+      <Button variant="outline" size="icon">
+        <Twitter className="h-4 w-4" />
+      </Button>
+    </a>
                 </div>
               </div>
             </div>
 
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-primary">Ubicación</h3>
-              <div className="bg-muted rounded-lg h-64 flex items-center justify-center">
+              <div className="rounded-lg overflow-hidden">
+                 <iframe
+                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.783393345472!2d-75.6983196852372!3d4.80806199651543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e38874144b20e45%3A0x4a463b35f6a1d176!2sUniversidad%20Cat%C3%B3lica%20de%20Pereira!5e0!3m2!1ses-419!2sco!4v1678886412345"
+                  width="100%"
+      height="350"
+      style={{ border: 0 }}
+      allowFullScreen={true}
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
                 <div className="text-center text-muted-foreground">
                   <MapPin className="h-12 w-12 mx-auto mb-2" />
                   <p>Mapa de Google Maps</p>
